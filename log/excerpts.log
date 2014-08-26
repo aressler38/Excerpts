@@ -1,0 +1,89 @@
+2014-08-26 05:07:33,170 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:07:33,186 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:08:15,727 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:08:15,727 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:09:43,324 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:09:43,325 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:10:09,418 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:10:09,419 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:14:56,132 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:14:56,132 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:16:06,395 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:16:06,396 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:17]
+2014-08-26 05:16:06,396 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:16:44,274 INFO: NOW LOADED [in /opt/Excerpts/excerpts/__init__.py:36]
+2014-08-26 05:16:44,276 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:16:44,276 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:17]
+2014-08-26 05:16:44,277 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:16:48,321 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:16]
+2014-08-26 05:16:48,322 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:17]
+2014-08-26 05:16:48,322 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:18]
+2014-08-26 05:27:33,205 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 05:28:16,350 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 05:28:16,351 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:28:16,352 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:28:16,352 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:28:20,828 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:28:20,829 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:28:20,829 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:28:34,208 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 05:28:34,209 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:28:34,209 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:28:34,210 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:37:23,223 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 05:37:23,224 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:37:23,225 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:37:23,225 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:37:28,038 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:37:28,038 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:37:28,039 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:37:32,394 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:37:32,395 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:37:32,395 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:37:49,841 ERROR: err [in /opt/Excerpts/excerpts/__init__.py:9]
+2014-08-26 05:37:49,841 WARNING: warn [in /opt/Excerpts/excerpts/__init__.py:10]
+2014-08-26 05:37:49,842 INFO: IN HERE INFO [in /opt/Excerpts/excerpts/__init__.py:11]
+2014-08-26 05:44:00,641 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 05:45:58,589 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 05:50:35,808 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:27:59,452 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:31:24,798 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:31:24,810 INFO: teardown [in /opt/Excerpts/excerpts/__init__.py:20]
+2014-08-26 06:31:30,697 INFO: teardown [in /opt/Excerpts/excerpts/__init__.py:20]
+2014-08-26 06:33:56,034 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:41:55,067 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:44:35,656 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:49:37,810 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:56:46,695 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 06:56:46,697 ERROR: Exception on / [GET] [in /usr/local/lib/python2.7/dist-packages/flask/app.py:1423]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/opt/Excerpts/excerpts/__init__.py", line 11, in hello
+    p = Pages(contents="HI THIS IS COOL, and a test.")
+TypeError: 'module' object is not callable
+2014-08-26 06:56:46,698 ERROR: 'module' object is not callable [in /opt/Excerpts/excerpts/__init__.py:16]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/opt/Excerpts/excerpts/__init__.py", line 11, in hello
+    p = Pages(contents="HI THIS IS COOL, and a test.")
+TypeError: 'module' object is not callable
+2014-08-26 07:00:03,916 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
+2014-08-26 07:04:58,065 INFO: NOW LOADED [in /opt/Excerpts/apache/excerpts.wsgi:14]
