@@ -2,4 +2,24 @@
 
 {% block body %}
 <h1> home </h1>
+<script src="public/js/lib/ckeditor/ckeditor.js"></script>
+
+<textarea id="editor" rows="10" cols="80"></textarea>
+<script>
+CKEDITOR.replace("editor");
+CKEDITOR.editorConfig = function (config) {
+    config.language = "en";
+    config.uiColor = "#ff0000";
+}; 
+
+function getText () {
+    var data = CKEDITOR.instances.editor.getData();
+    console.log(data);
+    return data;
+}
+
+</script>
+<button onclick="getText();">Get Text</button>
 {% endblock %}
+
+

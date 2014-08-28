@@ -3,3 +3,8 @@ CREATE TABLE IF NOT EXISTS pages (
     PRIMARY KEY(id),
     contents MEDIUMTEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS password (
+    id INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(id),
+    password TEXT NOT NULL
+);
