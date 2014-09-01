@@ -69,7 +69,7 @@ var queries = {};
 
 window.editor = editor;
 getPageEl.addEventListener("click", function (event) {
-    loadPage(pageNumEl.value);
+    loadPage(pageNumEl.value || 1);
 });
 
 nextPageEl.onclick = function () { loadPage(Number(__PAGE__)+1); };
@@ -114,15 +114,16 @@ function init () {
         buff = searchSplit[i].split("=");
         queries[buff[0]] = buff[1];
     }
-    if (queries.page) {
-        window.setTimeout(function() {
-            loadPage(queries.page)
-        },777); // editor isn't ready for whatever reason and provides no callback
-    }
 
     var appendature = searchSplit[0] === "" ? "?" : "&";
     if (!queries.nocache) {
         window.location.href += appendature + "nocache="+Date.now();
+    }
+
+    if (queries.page) {
+        window.setTimeout(function() {
+            loadPage(queries.page)
+        },777); // editor isn't ready for whatever reason and provides no callback
     }
 }
 function getText () {
@@ -132,6 +133,9 @@ function getText () {
 }
 
 function getPage (pageNum, callback) {
+    if ( pageNum.trim && pageNum.trim() === "" ) {
+        pageNum = 1;
+    }
     __PAGE__ = pageNum;
     $.ajax({
         url:"get",
@@ -158,13 +162,18 @@ function savePage (callback) {
     var doc = parser.parseFromString(contents, "text/html");
     var title = doc.querySelector("h1") || {};
     title = title.innerHTML;
+    
+    if (Number.isNaN(parseInt(pageNum))) {
+        alert("please pick the proper page");
+        return null;
+    }
 
     $.ajax({
         url:"save",
         type:"POST",
         contentType:"application/json",
         data:JSON.stringify({
-            pageNum: __PAGE__,
+            pageNum: pageNum,
             contents: contents,
             title: title
         }),
@@ -199,7 +208,7 @@ function deletePage (callback) {
 
 function loadPage (pageNum) {
     pageNumEl.value = pageNum;
-    getPage(pageNum, function(data) {
+    getPage(pageNum || 1, function(data) {
         editor.setData("", {
             callback: function () {
                 editor.insertHtml(data.excerpt)

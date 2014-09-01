@@ -5,3 +5,7 @@ body {
     background: url(../images/left.jpg);
 }
 
+@font-face {
+    font-family: Aladin;
+    src: url('../fonts/Aladin/Aladin-Regular.ttf')  format('truetype');
+}

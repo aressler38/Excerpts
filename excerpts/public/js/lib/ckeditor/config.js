@@ -9,4 +9,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.uiColor = '#AADC6E';
     config.height = "11in";
     config.contentsCss = "public/css/ckeditor.css";
+    config.font_names = 'Aladin;' + config.font_names;
 };
