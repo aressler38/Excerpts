@@ -72,8 +72,8 @@ getPageEl.addEventListener("click", function (event) {
     loadPage(pageNumEl.value);
 });
 
-nextPageEl.onclick = function () { goToPage(Number(__PAGE__)+1); };
-prevPageEl.onclick = function () { goToPage(Number(__PAGE__)-1); };
+nextPageEl.onclick = function () { loadPage(Number(__PAGE__)+1); };
+prevPageEl.onclick = function () { loadPage(Number(__PAGE__)-1); };
 
 savePageEl.addEventListener("click", function (event) {
     savePage();

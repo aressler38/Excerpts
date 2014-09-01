@@ -125,10 +125,10 @@ def get_page():
     if _json is None:
         _json = {}
     data = {}
-    pageId = int(_json['page'])
-    if pageId is None:
-        return 'invalid mime type?', 501
-    excerpt = Pages.query.filter_by(id=pageId).first()
+    pageID = 1
+    if (_json.has_key('page') and _json['page']):
+        pageID = int(_json['page'])
+    excerpt = Pages.query.filter_by(id=pageID).first()
     if excerpt is None:
         return "ERROR", 202
     data['excerpt'] = excerpt.contents

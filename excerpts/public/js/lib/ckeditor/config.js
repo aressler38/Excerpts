@@ -8,4 +8,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = "en";
 	config.uiColor = '#AADC6E';
     config.height = "11in";
+    config.contentsCss = "public/css/ckeditor.css";
 };
