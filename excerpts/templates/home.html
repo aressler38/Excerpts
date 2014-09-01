@@ -121,7 +121,6 @@ function init () {
     }
 
     var appendature = searchSplit[0] === "" ? "?" : "&";
-    console.log(queries)
     if (!queries.nocache) {
         window.location.href += appendature + "nocache="+Date.now();
     }
