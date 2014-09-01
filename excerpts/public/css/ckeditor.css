@@ -9,3 +9,15 @@ body {
     font-family: Aladin;
     src: url('../fonts/Aladin/Aladin-Regular.ttf')  format('truetype');
 }
+@font-face {
+    font-family: DeliusUnicase;
+    src: url('../fonts/Delius_Unicase/DeliusUnicase-Regular.ttf')  format('truetype');
+}
+@font-face {
+    font-family: MissFajardose;
+    src: url('../fonts/Miss_Fajardose/MissFajardose-Regular.ttf')  format('truetype');
+}
+@font-face {
+    font-family: CedarvilleCursive;
+    src: url('../fonts/Cedarville_Cursive/Cedarville-Cursive.ttf')  format('truetype');
+}
