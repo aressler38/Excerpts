@@ -64,7 +64,7 @@ var editor = CKEDITOR.replace("editor");
 var __PAGE__ = pageNumEl.value;
 var url = new URL(window.location.href);
 var search = url.search.substr(1);
-var searchSplit = search.split("=");
+var searchSplit = search.split("&");
 var queries = {};
 
 window.editor = editor;
@@ -109,13 +109,21 @@ if (document.readyState === "interactive" ||
 
 
 function init () {
-    for (var i=0; i<searchSplit.length; i=2*(i+1)) {
-        queries[searchSplit[i]] = searchSplit[i+1];
+    var buff;
+    for (var i=0; i<searchSplit.length; i++) {
+        buff = searchSplit[i].split("=");
+        queries[buff[0]] = buff[1];
     }
     if (queries.page) {
         window.setTimeout(function() {
             loadPage(queries.page)
         },777); // editor isn't ready for whatever reason and provides no callback
+    }
+
+    var appendature = searchSplit[0] === "" ? "?" : "&";
+    console.log(queries)
+    if (!queries.nocache) {
+        window.location.href += appendature + "nocache="+Date.now();
     }
 }
 function getText () {
