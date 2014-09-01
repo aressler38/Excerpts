@@ -15,6 +15,7 @@ from database import db_session, init_db
 from model.Pages import Pages
 from model.Password import Password
 from sqlalchemy import func, update
+from sqlalchemy.sql import select
 
 
 # new app + make db connection
@@ -72,7 +73,9 @@ def save():
     _json = request.get_json()
     pageNum = int(_json['pageNum'])
     new_contents = _json['contents']
-    new_title = _json['title']
+    new_title = ' '
+    if _json.has_key('title'):
+        new_title = _json['title']
     app.logger.info(_json)
     page_to_update = Pages.query.get(pageNum)
     page_to_update.contents = new_contents
@@ -80,11 +83,37 @@ def save():
     db_session.commit()
     return "OK", 200
 
+@app.route('/delete', methods=['POST'])
+@requires_auth
+def delete_page():
+    _json = request.get_json()
+    page_num = int(_json['pageNum'])
+    app.logger.info(_json)
+    page_to_delete = Pages.query.get(page_num)
+    db_session.delete(page_to_delete)
+    db_session.commit()
+    reset_pages()
+
+    return "OK", 200
+
+def reset_pages():
+    counter = 1
+    for page in db_session.query(Pages).yield_per(3):
+        page.id = counter 
+        counter += 1
+    db_session.commit()
+    return True 
+
 @app.route('/new', methods=['GET'])
 @requires_auth
 def insert_new_page():
-    db_session.add(Pages(contents='<p>This is a new page ready for editing</p>'))
+    """INSERT a new Page to the DB.
+    """
+    default_html = '<h1><span style="color:rgb(47, 79, 79)"><big><span style="background-color:rgb(218, 165, 32)">T</span></big><span style="font-size:11px"><span style="font-family:courier new,courier,monospace"><span style="background-color:rgb(255, 160, 122)">IT</span></span></span></span><span style="color:rgb(0, 255, 255)"><span style="font-size:36px"><span style="background-color:rgb(47, 79, 79)">L</span></span></span><span style="color:rgb(255, 255, 0)"><span style="font-size:28px"><span style="background-color:rgb(139, 69, 19)">E</span></span></span><span style="color:rgb(0, 0, 205)"><span style="font-family:georgia,serif"><span style="background-color:rgb(175, 238, 238)">.</span></span></span><span style="color:rgb(0, 0, 205); font-family:georgia,serif"><span style="font-size:36px"><span style="background-color:rgb(218, 165, 32)">.</span></span><span style="font-size:72px"><span style="background-color:rgb(0, 128, 128)">.</span></span></span></h1> <blockquote> <p><span style="font-family:courier new,courier,monospace">Some&nbsp;&nbsp;excerpts regarding whatever&nbsp;</span></p> </blockquote>'
+
+    db_session.add(Pages(contents=default_html, title=default_html[:986]))
     db_session.commit()
+    reset_pages()
     count = db_session.query(func.count(Pages.id)).scalar()
     return str(count)
 

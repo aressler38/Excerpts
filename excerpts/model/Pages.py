@@ -8,8 +8,9 @@ class Pages(Base):
     contents = Column(MEDIUMTEXT)
     title = Column(VARCHAR(1024))
 
-    def __init__(self, contents="none"):
+    def __init__(self, contents="none", title="null"):
         self.contents = contents 
+        self.title = title
 
     def __repr__(self):
         return '<Contents %r>' % (self.contents)

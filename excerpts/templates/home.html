@@ -20,17 +20,22 @@
 <div id="excerpt-controls">
     <div id="excerpt-details">
         <span>There are {{ data.count }} excerpts available.</span>
+        <span>Which page do you want? (1 - {{ data.count }})</span>
     </div>
     <div>
-        <span>Which page do you want? (1 - {{ data.count }})</span>
         <div>
-            <input id="page-num" type="number" value="1" min="1" max="{{ data.count }}" />
+            <span>Excerpt #:</span>
+            <input id="page-num" type="number" min="1" max="{{ data.count }}" />
             <button id="get-page">Get Excerpt</button>
             <div class="h-space"></div>
-            <div></div>
+            <button id="prev-page">Prev</button>
+            <button id="next-page">Next</button>
+            <hr/>
             <button id="save-page">Save Excerpt</button>
             <div class="h-space"></div>
             <button id="new-page">New Excerpt</button>
+            <div></div>
+            <button id="delete-page">DELETE Excerpt</button>
         </div>
     </div>
     <hr/>
@@ -45,7 +50,10 @@
 var getPageEl= document.getElementById("get-page");
 var pageNumEl = document.getElementById("page-num");
 var savePageEl = document.getElementById("save-page");
+var deletePageEl = document.getElementById("delete-page");
 var newPageEl = document.getElementById("new-page");
+var nextPageEl = document.getElementById("next-page");
+var prevPageEl = document.getElementById("prev-page");
 var titleEl = document.getElementById("title");
 
 var editor = CKEDITOR.replace("editor");
@@ -60,18 +68,32 @@ getPageEl.addEventListener("click", function (event) {
     loadPage(pageNumEl.value);
 });
 
+nextPageEl.onclick = function () { goToPage(Number(__PAGE__)+1); };
+prevPageEl.onclick = function () { goToPage(Number(__PAGE__)-1); };
+
 savePageEl.addEventListener("click", function (event) {
     savePage();
 });
+
+deletePageEl.addEventListener("click", function (event) {
+    deletePage();
+});
+
 
 newPageEl.addEventListener("click", function (event) {
     $.ajax({
         url:"new",
         type:"GET",
         success: function (data, status, jqXHR) {
-            window.location.href = window.location.protocol + "//" + window.location.hostname + window.location.pathname + "?page=" + data;
-                }
+            goToPage(data);
+        }
     });
+});
+
+pageNumEl.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        loadPage(this.value);
+    }
 });
 
 if (document.readyState === "interactive" || 
@@ -144,6 +166,26 @@ function savePage (callback) {
     titleEl.innerHTML = title;
 }
 
+function deletePage (callback) {
+    var pageNum = __PAGE__;
+    var confirmation = confirm ("ARE YOU SERIOUS? THIS PAGE WILL BE DELETED FOREVER.");
+    if (!confirmation) { return false; }
+
+    $.ajax({
+        url:"delete",
+        type:"POST",
+        contentType:"application/json",
+        data:JSON.stringify({
+            pageNum: __PAGE__
+        }),
+        success: function (data, status, jqXHR) {
+            callback && callback(data);
+            goToPage(1);
+        }
+    });
+}
+
+
 function loadPage (pageNum) {
     pageNumEl.value = pageNum;
     getPage(pageNum, function(data) {
@@ -154,6 +196,10 @@ function loadPage (pageNum) {
             }
         });
     });
+}
+
+function goToPage (pageNum) {
+    window.location.href = window.location.protocol + "//" + window.location.hostname + window.location.pathname + "?page=" + pageNum;
 }
 
 })();
