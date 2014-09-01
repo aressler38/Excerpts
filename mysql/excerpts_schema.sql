@@ -8,3 +8,5 @@ CREATE TABLE IF NOT EXISTS password (
     PRIMARY KEY(id),
     password TEXT NOT NULL
 );
+
+ALTER TABLE pages ADD title VARCHAR(1024);

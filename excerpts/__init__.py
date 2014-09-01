@@ -72,9 +72,11 @@ def save():
     _json = request.get_json()
     pageNum = int(_json['pageNum'])
     new_contents = _json['contents']
+    new_title = _json['title']
     app.logger.info(_json)
     page_to_update = Pages.query.get(pageNum)
     page_to_update.contents = new_contents
+    page_to_update.title = new_title
     db_session.commit()
     return "OK", 200
 
@@ -101,6 +103,7 @@ def get_page():
     if excerpt is None:
         return "ERROR", 202
     data['excerpt'] = excerpt.contents
+    data['title'] = excerpt.title
     return jsonify(data), 200
 
 # ==================

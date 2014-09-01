@@ -9,8 +9,15 @@
         height: 1em;
         line-height:1;
     }
+    #excerpt-controls > div {
+        margin-left:10%;
+    }
+    #title {
+        text-align: center;
+        font-family: Verdana;
+    }
 </style>
-<div>
+<div id="excerpt-controls">
     <div id="excerpt-details">
         <span>There are {{ data.count }} excerpts available.</span>
     </div>
@@ -20,13 +27,16 @@
             <input id="page-num" type="number" value="1" min="1" max="{{ data.count }}" />
             <button id="get-page">Get Excerpt</button>
             <div class="h-space"></div>
+            <div></div>
             <button id="save-page">Save Excerpt</button>
             <div class="h-space"></div>
             <button id="new-page">New Excerpt</button>
         </div>
-        
     </div>
+    <hr/>
 </div>
+
+<h1 id="title"></h1>
 <script src="public/js/lib/ckeditor/ckeditor.js"></script>
 
 <textarea id="editor" rows="10" cols="80"></textarea>
@@ -36,6 +46,7 @@ var getPageEl= document.getElementById("get-page");
 var pageNumEl = document.getElementById("page-num");
 var savePageEl = document.getElementById("save-page");
 var newPageEl = document.getElementById("new-page");
+var titleEl = document.getElementById("title");
 
 var editor = CKEDITOR.replace("editor");
 var __PAGE__ = pageNumEl.value;
@@ -109,19 +120,28 @@ function getPage (pageNum, callback) {
 
 function savePage (callback) {
     var pageNum = __PAGE__;
+    var parser = new DOMParser();
+    var contents = editor.getData();
+    var doc = parser.parseFromString(contents, "text/html");
+    var title = doc.querySelector("h1") || {};
+    title = title.innerHTML;
+
     $.ajax({
         url:"save",
         type:"POST",
         contentType:"application/json",
         data:JSON.stringify({
             pageNum: __PAGE__,
-            contents: editor.getData()
+            contents: contents,
+            title: title
         }),
         success: function (data, status, jqXHR) {
             callback && callback(data);
             alert("saved");
         }
     });
+
+    titleEl.innerHTML = title;
 }
 
 function loadPage (pageNum) {
@@ -130,6 +150,7 @@ function loadPage (pageNum) {
         editor.setData("", {
             callback: function () {
                 editor.insertHtml(data.excerpt)
+                titleEl.innerHTML = data.title;
             }
         });
     });
